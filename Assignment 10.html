@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>
+  <script src="js/script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body{
+      background-color: #2C4773;
+    }
+
+    h1{
+      text-align: center;
+      margin-bottom: -5px;
+    }
+
+    h2{
+      text-align: center;
+      margin-top: 0px;
+      margin-bottom: 50px;
+    }
+
+    p{
+      margin-top: 70px;
+      margin-right: 180px;
+    }
+
+    HR{
+      margin-top: 80px;
+    }
+
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+    }
+
+    .fa:hover {
+      opacity: 0.7;
+    }
+
+      .fa-soundcloud {
+          background: #ff5500;
+          color: white;
+      }
+      .fa-youtube {
+          background: #bb0000;
+          color: white;
+      }
+      .fa-facebook {
+          background: #3B5998;
+          color: white;
+      }
+      .fa-twitter {
+          background: #55ACEE;
+          color: white;
+      }
+
+      div{
+        text-align: center;
+      }
+      h3{
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: -50px;
+      }
+
+      var nwsRequest = new XMLHttpRequest();
+      nwsRequest.open('GET', 'https://raw.githubusercontent.com/geojson/geojson-ld/master/contexts/geojson-base.jsonld');
+
+      nwsRequest.send(null);
+
+      nwsRequest.onreadystatechange = function() {
+        var DONE = 4;
+        var OK = 200;
+        if(nwsRequest.readyState === DONE){
+          if(nwsRequest.status === OK){
+            var nhsResponse = JSON.parse(nwsRequest.responseText);
+            var weatherDiv = doctumenr.getElementById("weather");
+            weatherDiv.innerHTML = nhsResponse.features[0].properties.textDescription;
+          }
+        }
+        if()
+      }
+  </style>
+
+</head>
+<body>
+
+  <h1 style="font-size:50px">Peter MacDonald</h1>
+
+  <h2> Just trying to be a producer. </h2>
+
+  <img src="Headshot8x10.png" alt="headshot" style="width:190px;height:250px;" align="left" hspace="180" border="5">
+  <p style="font-size:20px"> Peter MacDonald is a producer, sound engineer, mix engineer, and performer from St.John’s Newfoundland. He is currently in his fourth year at Berklee college of Music obtaining his B.P.S. in the professional studies of Music production. Peter is Avid certified, a union member, and has over 8 years of experience in the music production world. He was the main sound tech at “The Fat Cat” on George Street and has teched across Newfoundland in venues from the LSPU Hall to The Arts and Culture Centre. He has also had the pleasure to preform in every major city across Canada as well as Berlin, Germany.
+  </p>
+
+  <HR COLOR="gray" WIDTH=60%>
+
+<div>
+
+  <p style="font-size:16px"> Peter would love to hear from you, or for you to hear him! Check out previous work, stay up to date with future work, or contact us with any of the links below.
+  </p>
+
+  <div class="box">
+  <button class="btn"><a href="https://www.facebook.com/peter.macdonald.1213" class="fa fa-facebook"></a>
+  <button class="btn"><a href="https://twitter.com/peteymacd" class="fa fa-twitter"></a>
+  <button class="btn"><a href="https://www.youtube.com/channel/UCrKnGGgUYbkLYn9YE_V0agA?view_as=subscriber" class="fa fa-youtube"></a>
+  <button class="btn"><a href="https://soundcloud.com/user-149088061" class="fa fa-soundcloud"></a>
+  </div>
+
+    <p style="font-size:16px"> Links not working? Very possible as Peter really isn't much of a computer programer. He IS however good enough to do this! Contact Peter directly by clicking   <a href="mailto:709macdonald@gmail.com">here</a>.
+    </p>
+
+</div>
+
+<h3 style="font-size:30px"> Wanna know if Peter is Busking? </h3>
+
+<p>Peter Busks whenever it is nice outside. Check out the weather from the widget below.</p>
+
+<div id="weather"> this is for weather</div>
+
+<a class="weatherwidget-io" href="https://forecast7.com/en/47d56n52d71/st-johns/" data-label_1="ST. JOHN'S" data-label_2="WEATHER" data-theme="original" >ST. JOHN'S WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+
+</body>
